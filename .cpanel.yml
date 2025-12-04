@@ -1,22 +1,23 @@
 ---
 deployment:
   tasks:
-    - /bin/echo "Starting deployment for franchise-backend"
+    - /bin/echo "=== Deploying franchise-backend ==="
 
-    - mvn -q -DskipTests package || { echo "Maven build failed"; exit 1; }
+    # Build jar
+    - /bin/mvn -q -DskipTests package
 
-    - export DEPLOYPATH=/home/fuma/public_html/backend_fumaretail/
+    # Ensure deploy folder exists
+    - /bin/mkdir -p /home/fuma/public_html/backend_fumaretail
 
-    - /bin/mkdir -p $DEPLOYPATH
+    # Copy jar
+    - /bin/cp target/*.jar /home/fuma/public_html/backend_fumaretail/app.jar
 
-    - /bin/cp target/*.jar $DEPLOYPATH/app.jar
+    # Stop old PM2 process
+    - cd /home/fuma/public_html/backend_fumaretail && /bin/pm2 delete franchise-backend || true
 
-    - if [ -f $DEPLOYPATH/app.pid ]; then
-        kill $(cat $DEPLOYPATH/app.pid) || true;
-        rm -f $DEPLOYPATH/app.pid;
-      fi
+    # Start new jar
+    - cd /home/fuma/public_html/backend_fumaretail && /bin/pm2 start app.jar --name franchise-backend --interpreter none --restart-delay 5000
 
-    - cd $DEPLOYPATH && nohup java -jar app.jar > app.log 2>&1 &
-    - echo $! > $DEPLOYPATH/app.pid
+    - /bin/pm2 save
 
-    - /bin/echo "Deployment finished for franchise-backend"
+    - /bin/echo "=== franchise-backend deploy complete ==="
