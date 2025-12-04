@@ -1,0 +1,22 @@
+---
+deployment:
+  tasks:
+    - /bin/echo "Starting deployment for franchise-backend"
+
+    - mvn -q -DskipTests package || { echo "Maven build failed"; exit 1; }
+
+    - export DEPLOYPATH=/home/fuma/public_html/backend_fumaretail/
+
+    - /bin/mkdir -p $DEPLOYPATH
+
+    - /bin/cp target/*.jar $DEPLOYPATH/app.jar
+
+    - if [ -f $DEPLOYPATH/app.pid ]; then
+        kill $(cat $DEPLOYPATH/app.pid) || true;
+        rm -f $DEPLOYPATH/app.pid;
+      fi
+
+    - cd $DEPLOYPATH && nohup java -jar app.jar > app.log 2>&1 &
+    - echo $! > $DEPLOYPATH/app.pid
+
+    - /bin/echo "Deployment finished for franchise-backend"
