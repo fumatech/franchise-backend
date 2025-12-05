@@ -1,0 +1,38 @@
+package com.franchise.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+
+import com.franchise.Entity.Vendor;
+
+public interface VendorService {
+	
+	
+	Vendor saveVendor(Vendor Vendor);
+	
+	 boolean isActiveUser(String email);
+
+	    Optional<Vendor> findByEmail(String email);
+
+ 
+
+	List<Vendor> getAllVendors();
+
+	Vendor updateVendor(Long VendorId, Vendor updatedVendor);
+
+	Vendor getVendorById(Long id);
+
+	void deleteVendorById(Long id);
+	
+	  // Add the following method to the interface
+    Vendor getUserWithRolesAndPermissions(String email);
+    
+    
+    Optional<String> getUserName(String email);
+    
+    Optional<String> findFirmNameByEmail(String email);
+
+
+
+}
