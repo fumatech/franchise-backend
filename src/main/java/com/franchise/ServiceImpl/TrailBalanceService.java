@@ -32,8 +32,8 @@ public class TrailBalanceService {
     @Autowired
     private TransactionRepo txnRepo;
 
-    @Autowired
-    private CustomerRepo customerRepo;
+//    @Autowired
+//    private CustomerRepo customerRepo;
 
     private Map<String, JournalEntry> ledger;
 
