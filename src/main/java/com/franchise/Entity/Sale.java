@@ -65,7 +65,7 @@ public class Sale {
 	@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<StockTransaction> stockTransaction;
 
-	@Transient // Mark this as not persisted in the database
+	@Transient
 	private com.franchise.Service.IdGenerator idGenerator;
 
 	public List<SaleItems> getSaleItems() {

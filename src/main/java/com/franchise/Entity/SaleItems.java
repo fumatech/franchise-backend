@@ -39,8 +39,6 @@ public class SaleItems {
 	@JsonBackReference
 	private Sale sale;
 
-	// Getters and Setters for all fields
-
 	public Long getId() {
 		return id;
 	}

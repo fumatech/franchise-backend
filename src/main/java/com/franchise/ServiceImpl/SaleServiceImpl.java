@@ -1,6 +1,9 @@
 package com.franchise.ServiceImpl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -106,5 +109,17 @@ public class SaleServiceImpl implements SaleService {
 	@Override
 	public Optional<Sale> getSaleOrderById(String saleOrderId) {
 		return Optional.ofNullable(saleRepo.findBysaleOrderId(saleOrderId));
+	}
+
+	@Override
+	public Map<String, List<Object>> getAllSaleOrdersWithTax() {
+
+		Map<String, List<Object>> result = new HashMap<>();
+
+		List<Object> allOrders = new ArrayList<>();
+		allOrders.addAll(saleRepo.findAllWithSaleTax());
+
+		result.put("orders", allOrders);
+		return result;
 	}
 }
