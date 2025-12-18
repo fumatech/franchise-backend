@@ -2,6 +2,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\Configur
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\Configuration\WebConfig.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\AccountController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\AddExpensesController.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\CombinedPurchaseOrderController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\CustomerController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\ExpensesController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\FileController.java
@@ -10,6 +11,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\PaymentMethodController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\PermissionController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\ProductController.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\ProductPurchaseReportController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\ProductStockController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\PurchaseController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\PurchaseDIOrderController.java
@@ -26,6 +28,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\TaxRateController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\TenantConnectionController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\TrailBalanceController.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\TransactionController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\UserController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\VendorController.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Controller\WarrantyClaimController.java
@@ -42,6 +45,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\PaymentMethod.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\Permission.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\Product.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\ProductPurchaseReportDTO.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\ProductStock.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\Purchase.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\PurchaseDIItem.java
@@ -59,6 +63,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\SaleReturn.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\SaleReturnItem.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\SaleReturnPaymentMethod.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\SellReportDTO.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\ShippingDIDetails.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\ShippingPoDetails.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Entity\ShippingSaleReturnDetails.java
@@ -85,15 +90,19 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PermissionRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\ProductRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\ProductStockRepo.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchaseDIItemRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchaseDIOrderRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchaseOrderRepo.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchasePoItemRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchasePoOrderRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchaseRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\PurchaseReturnRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\RoleRepository.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\SaleItemRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\SalePaymentMethodRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\SaleRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\SaleReturnRepo.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\StockAdjustmentItemsRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\StockAdjustmentRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\StockTransactionRepo.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Repository\TaxGroupRepo.java
@@ -115,6 +124,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\PaymentAccountService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\PaymentMethodService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\PermissionService.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\ProductPurchaseReportService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\ProductService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\ProductStockService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\PurchaseDIOrderService.java
@@ -135,6 +145,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\Service\WarrantyClaimService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\AccountServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\AddExpensesServiceImpl.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\CombinedPurchaseOrderService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\CustomerImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\ExpensesServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\ImageUploadServiceImpl.java
@@ -159,6 +170,7 @@ C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchis
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\TaxRateServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\TaxServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\TrailBalanceService.java
+C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\TransactionService.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\UserServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\VendorServiceImpl.java
 C:\Users\dell\Desktop\Fuma Projects\franchise-backend\src\main\java\com\franchise\ServiceImpl\WarrantyClaimServiceImpl.java

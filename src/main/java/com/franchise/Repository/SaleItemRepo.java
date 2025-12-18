@@ -14,8 +14,8 @@ public interface SaleItemRepo extends JpaRepository<SaleItems, Long> {
 			    SELECT new com.franchise.Entity.SellReportDTO(
 			        i.productName,
 			        i.productSku,
-			        o.customerId,
-			        o.franchise,
+			        null,
+			        o.customer,
 			        o.referenceNumber,
 			        o.saleDate,
 			        i.quantity,
@@ -25,8 +25,8 @@ public interface SaleItemRepo extends JpaRepository<SaleItems, Long> {
 			        unitSellingPrice,
 			        i.lineTotal
 			    )
-			    FROM SaleSoItem i
-			    JOIN i.saleSoOrder o
+			    FROM SaleItems i
+			    JOIN i.sale o
 			""")
 	List<SellReportDTO> getSoSellReport();
 }
