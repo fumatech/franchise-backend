@@ -16,64 +16,63 @@ import jakarta.persistence.OneToMany;
 
 public class SaleReturn {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String orderId;
-	
+
+	private String customer;
+
 	private String orderRefernceNumber;
-	
+
 	private String referenceNumber;
-	
+
 	private String orderedBy;
-	
+
 	private String addedBy;
-	
+
 	private Date orderDate;
-	
+
 	private Date saleDate;
-	
-    private Long payTermNumber;
-    
-    private String payTermType;
 
-    private String location;
+	private Long payTermNumber;
 
-    
-    private Long totalItems;
-    
-    private Long totalSaleItems;
+	private String payTermType;
 
-    private Long saleStatus;
+	private String location;
 
-    
-    private BigDecimal netTotalAmount;
+	private Long totalItems;
 
-    private String discountType;
-    
-    private BigDecimal discountAmount;
-    
-    private String saleTax;
+	private Long totalSaleItems;
 
-    private BigDecimal taxAmount;
-  
-    private String additionalNotes;
-	
-	
-    // List of product items (one-to-many relationship)
-    @OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SaleReturnItem> saleReturnItem;
-    
-    // List of product items (one-to-many relationship)
-    @OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Transaction> transaction = new ArrayList<>();
+	private Long saleStatus;
 
-    // List of product items (one-to-many relationship)
-    @OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ShippingSaleReturnDetails> shippingSaleReturnDetails;
-    
-    @OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<StockTransaction> stockTransaction;
+	private BigDecimal netTotalAmount;
+
+	private String discountType;
+
+	private BigDecimal discountAmount;
+
+	private String saleTax;
+
+	private BigDecimal taxAmount;
+
+	private String additionalNotes;
+
+	// List of product items (one-to-many relationship)
+	@OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<SaleReturnItem> saleReturnItem;
+
+	// List of product items (one-to-many relationship)
+	@OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Transaction> transaction = new ArrayList<>();
+
+	// List of product items (one-to-many relationship)
+	@OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ShippingSaleReturnDetails> shippingSaleReturnDetails;
+
+	@OneToMany(mappedBy = "saleReturn", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<StockTransaction> stockTransaction;
 
 	public Long getId() {
 		return id;
@@ -91,6 +90,14 @@ public class SaleReturn {
 		this.orderId = orderId;
 	}
 
+	public String getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(String customer) {
+		this.customer = customer;
+	}
+
 	public String getOrderRefernceNumber() {
 		return orderRefernceNumber;
 	}
@@ -98,8 +105,7 @@ public class SaleReturn {
 	public void setOrderRefernceNumber(String orderRefernceNumber) {
 		this.orderRefernceNumber = orderRefernceNumber;
 	}
-	
-	
+
 	public String getReferenceNumber() {
 		return referenceNumber;
 	}
@@ -204,8 +210,6 @@ public class SaleReturn {
 		this.discountAmount = discountAmount;
 	}
 
- 
-
 	public String getSaleTax() {
 		return saleTax;
 	}
@@ -237,8 +241,6 @@ public class SaleReturn {
 	public void setSaleReturnItem(List<SaleReturnItem> saleReturnItem) {
 		this.saleReturnItem = saleReturnItem;
 	}
-
- 
 
 	public List<ShippingSaleReturnDetails> getShippingSaleReturnDetails() {
 		return shippingSaleReturnDetails;
@@ -272,8 +274,4 @@ public class SaleReturn {
 		this.transaction = transaction;
 	}
 
- 
-
-
-    
 }

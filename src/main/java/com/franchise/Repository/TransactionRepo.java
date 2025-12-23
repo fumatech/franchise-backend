@@ -1,5 +1,6 @@
 package com.franchise.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,19 @@ public interface TransactionRepo extends JpaRepository<Transaction, Long> {
 
 	@Query("SELECT t FROM Transaction t WHERE LOWER(t.transactionType) = LOWER(:type)")
 	List<Transaction> findByType(String type);
+
+	@Query("""
+			SELECT COALESCE(SUM(t.amount), 0)
+			FROM Transaction t
+			WHERE LOWER(t.transactionType) IN ('purchase')
+			""")
+	BigDecimal totalPurchasePaid();
+
+	@Query("""
+			SELECT COALESCE(SUM(t.amount), 0)
+			FROM Transaction t
+			WHERE LOWER(t.transactionType) IN ('sale')
+			""")
+	BigDecimal totalSaleReceived();
 
 }

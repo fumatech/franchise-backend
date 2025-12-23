@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.franchise.ErpFranchiseApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 56.71 s -- in com.franchise.ErpFranchiseApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 50.23 s -- in com.franchise.ErpFranchiseApplicationTests

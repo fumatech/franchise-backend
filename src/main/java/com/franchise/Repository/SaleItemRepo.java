@@ -16,7 +16,7 @@ public interface SaleItemRepo extends JpaRepository<SaleItems, Long> {
 			        i.productSku,
 			        null,
 			        o.customer,
-			        o.referenceNumber,
+			        o.invoiceNo,
 			        o.saleDate,
 			        i.quantity,
 			        i.unitCostBeforeDiscount,

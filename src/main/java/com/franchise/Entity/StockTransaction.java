@@ -1,5 +1,6 @@
 package com.franchise.Entity;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -15,70 +16,67 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class StockTransaction {
-	
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private Long productId;  
-    private Long variationId;  
+	private Long productId;
+	private Long variationId;
 
-    private int quantity;
-    private String transactionType;  
+	private BigDecimal price;
 
-	private Date date;    
-      
-    private String note;
-    
-    
-    // Many-to-one relationship with PurchasePoOrder
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "purchase_po_order_id")
-    @JsonBackReference
-    @JsonIgnore
-    private PurchasePoOrder purchasePoOrder;                            
-    
+	private int quantity;
+	private String transactionType;
+
+	private Date date;
+	private String note;
+
+	// Many-to-one relationship with PurchasePoOrder
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "purchase_po_order_id")
+	@JsonBackReference
+	@JsonIgnore
+	private PurchasePoOrder purchasePoOrder;
+
 	// Many-to-one relationship with PurchasePoOrder
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "purchase_di_order_id")
 	@JsonBackReference
 	@JsonIgnore
 	private PurchaseDIOrder purchaseDIOrder;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "purchase_return_id")
-    @JsonBackReference
-    @JsonIgnore
-    private PurchaseReturn purchaseReturn;
-    
-    @ManyToOne
-    @JoinColumn(name ="sale_id") 
-    @JsonBackReference
-    @JsonIgnore
-    private Sale sale;
 
-    
-    @ManyToOne 
-    @JoinColumn(name = "sale_Return_Order_id")
-    @JsonBackReference
-    @JsonIgnore
-    private SaleReturn saleReturn;
-    
-    @ManyToOne
-    @JoinColumn(name = "stock_Adjustment_id") 
-    @JsonBackReference
-    @JsonIgnore
-    private StockAdjustment stockAdjustment;
-    
-    
-    @ManyToOne
-    @JoinColumn(name = "warranty_claim_id") 
-    @JsonBackReference
-    @JsonIgnore
-    private WarrantyClaim warrantyClaim;
-    
-	public Long getId() {          
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "purchase_return_id")
+	@JsonBackReference
+	@JsonIgnore
+	private PurchaseReturn purchaseReturn;
+
+	@ManyToOne
+	@JoinColumn(name = "sale_id")
+	@JsonBackReference
+	@JsonIgnore
+	private Sale sale;
+
+	@ManyToOne
+	@JoinColumn(name = "sale_Return_Order_id")
+	@JsonBackReference
+	@JsonIgnore
+	private SaleReturn saleReturn;
+
+	@ManyToOne
+	@JoinColumn(name = "stock_Adjustment_id")
+	@JsonBackReference
+	@JsonIgnore
+	private StockAdjustment stockAdjustment;
+
+	@ManyToOne
+	@JoinColumn(name = "warranty_claim_id")
+	@JsonBackReference
+	@JsonIgnore
+	private WarrantyClaim warrantyClaim;
+
+	public Long getId() {
 		return id;
 	}
 
@@ -100,6 +98,14 @@ public class StockTransaction {
 
 	public void setVariationId(Long variationId) {
 		this.variationId = variationId;
+	}
+
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
 	public int getQuantity() {
@@ -190,11 +196,4 @@ public class StockTransaction {
 		this.purchaseDIOrder = purchaseDIOrder;
 	}
 
-	 
-
-	 
-    
-    
-    
-    
 }

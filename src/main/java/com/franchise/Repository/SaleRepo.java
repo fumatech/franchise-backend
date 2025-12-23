@@ -1,5 +1,6 @@
 package com.franchise.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,5 +24,11 @@ public interface SaleRepo extends JpaRepository<Sale, Long> {
 			    WHERE p.taxAmount IS NOT NULL
 			""")
 	List<Sale> findAllWithSaleTax();
+
+	@Query("SELECT COALESCE(SUM(s.netTotalAmount - s.taxAmount), 0) FROM Sale s")
+	BigDecimal totalSale();
+
+	@Query("SELECT COALESCE(SUM(s.netTotalAmount),0) FROM Sale s")
+	BigDecimal totalSaleWithTax();
 
 }

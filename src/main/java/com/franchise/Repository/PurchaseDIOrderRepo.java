@@ -1,5 +1,6 @@
 package com.franchise.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,4 +23,10 @@ public interface PurchaseDIOrderRepo extends JpaRepository<PurchaseDIOrder, Long
 			    WHERE d.purchaseTax IS NOT NULL
 			""")
 	List<PurchaseDIOrder> findAllWithPurchaseTax();
+
+	@Query("SELECT COALESCE(SUM(p.netTotalAmount - p.taxAmount), 0) FROM PurchaseDIOrder p")
+	BigDecimal totalPurchaseDI();
+
+	@Query("SELECT COALESCE(SUM(p.netTotalAmount),0) FROM PurchaseDIOrder p")
+	BigDecimal totalPurchaseDIWithTax();
 }

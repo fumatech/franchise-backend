@@ -8,7 +8,7 @@ public class SellReportDTO {
 	private String products;
 	private String sku;
 	private Long customerId;
-	private String franchise;
+	private String customer;
 	private String invoiceNo;
 	private Date date;
 	private Long quantity;
@@ -18,14 +18,14 @@ public class SellReportDTO {
 	private BigDecimal priceIncTax;
 	private BigDecimal total;
 
-	public SellReportDTO(String products, String sku, Long customerId, String franchise, String invoiceNo, Date date,
+	public SellReportDTO(String products, String sku, Long customerId, String customer, String invoiceNo, Date date,
 			Long quantity, BigDecimal unitPrice, BigDecimal discount, BigDecimal tax, BigDecimal priceIncTax,
 			BigDecimal total) {
 		super();
 		this.products = products;
 		this.sku = sku;
 		this.customerId = customerId;
-		this.franchise = franchise;
+		this.customer = customer;
 		this.invoiceNo = invoiceNo;
 		this.date = date;
 		this.quantity = quantity;
@@ -60,12 +60,12 @@ public class SellReportDTO {
 		this.customerId = customerId;
 	}
 
-	public String getFranchise() {
-		return franchise;
+	public String getCustomer() {
+		return customer;
 	}
 
-	public void setFranchise(String franchise) {
-		this.franchise = franchise;
+	public void setCustomer(String customer) {
+		this.customer = customer;
 	}
 
 	public String getInvoiceNo() {
