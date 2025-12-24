@@ -75,7 +75,7 @@ public class SaleReturnServiceImpl implements SaleReturnService {
 	                switch (transaction.getTransactionType().toLowerCase()) {
 	                    case "deposit":
 	                    case "purchase":
-	                    case "salereturn":
+	                    case "sale_return":
 
 	                    case "opening_balance":
 	                        newBalance = previousBalance.add(transaction.getAmount());

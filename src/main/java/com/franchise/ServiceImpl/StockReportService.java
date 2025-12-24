@@ -40,11 +40,15 @@ public class StockReportService {
 
 			case "po_purchase":
 			case "di_purchase":
+			case "purchase":
+			case "sale_return":
+
 				dto.setTotalPurchased(dto.getTotalPurchased() + qty);
 				dto.setDefaultPurchasePrice(price); // last purchase price
 				break;
 
 			case "sale":
+			case "purchase_return":
 				dto.setTotalSold(dto.getTotalSold() + qty);
 				dto.setUnitSellingPrice(price); // last selling price
 				break;

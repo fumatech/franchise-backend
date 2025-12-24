@@ -98,32 +98,40 @@ public class Transaction {
 	public void setPaymentAccountId(Long paymentAccountId) {
 		this.paymentAccountId = paymentAccountId;
 	}
+
 	@Transient
 	public BigDecimal getDebit() {
-	    if (transactionType == null) return BigDecimal.ZERO;
+		if (transactionType == null)
+			return BigDecimal.ZERO;
 
-	    switch (transactionType.toLowerCase()) {
-	        case "opening_balance":
-	        case "deposit":
-	        case "credit note":
-	            return amount != null ? amount : BigDecimal.ZERO;
-	        default:
-	            return BigDecimal.ZERO;
-	    }
+		switch (transactionType.toLowerCase()) {
+		case "opening_balance":
+		case "deposit":
+		case "sale_return":
+		case "purchase":
+		case "po_purchase":
+		case "di_purchase":
+		case "credit note":
+			return amount != null ? amount : BigDecimal.ZERO;
+		default:
+			return BigDecimal.ZERO;
+		}
 	}
 
 	@Transient
 	public BigDecimal getCredit() {
-	    if (transactionType == null) return BigDecimal.ZERO;
+		if (transactionType == null)
+			return BigDecimal.ZERO;
 
-	    switch (transactionType.toLowerCase()) {
-	        case "sale":
-	        case "payment":
-	        case "expense":
-	            return amount != null ? amount : BigDecimal.ZERO;
-	        default:
-	            return BigDecimal.ZERO;
-	    }
+		switch (transactionType.toLowerCase()) {
+		case "sale":
+		case "payment":
+		case "purchase_return":
+		case "expense":
+			return amount != null ? amount : BigDecimal.ZERO;
+		default:
+			return BigDecimal.ZERO;
+		}
 	}
 
 	// Getters and setters

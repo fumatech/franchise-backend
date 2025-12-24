@@ -63,6 +63,9 @@ public class Sale {
 	private List<SaleItems> saleItems;
 
 	@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Transaction> transaction;
+
+	@OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<StockTransaction> stockTransaction;
 
 	@Transient
@@ -74,6 +77,14 @@ public class Sale {
 
 	public void setSaleItems(List<SaleItems> saleItems) {
 		this.saleItems = saleItems;
+	}
+
+	public List<Transaction> getTransaction() {
+		return transaction;
+	}
+
+	public void setTransaction(List<Transaction> transaction) {
+		this.transaction = transaction;
 	}
 
 	public Long getId() {
