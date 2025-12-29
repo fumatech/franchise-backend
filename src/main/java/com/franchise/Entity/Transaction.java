@@ -68,6 +68,34 @@ public class Transaction {
 	@JsonIgnore
 	private SaleReturn saleReturn;
 
+	@Transient
+	private Long saleId;
+
+	public Long getSaleId() {
+		if (saleId == null && sale != null) {
+			return sale.getId();
+		}
+		return saleId;
+	}
+
+	public void setSaleId(Long saleId) {
+		this.saleId = saleId;
+	}
+
+	@Transient
+	private Long saleReturnId;
+
+	public Long getSaleReturnId() {
+		if (saleReturnId == null && saleReturn != null) {
+			return saleReturn.getId();
+		}
+		return saleReturnId;
+	}
+
+	public void setSaleReturnId(Long saleReturnId) {
+		this.saleReturnId = saleReturnId;
+	}
+
 	public SaleReturn getSaleReturn() {
 		return saleReturn;
 	}

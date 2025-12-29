@@ -12,8 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.franchise.Entity.PaymentAccount;
+import com.franchise.Entity.Sale;
+import com.franchise.Entity.SaleReturn;
 import com.franchise.Entity.Transaction;
 import com.franchise.Repository.PaymentAccountRepo;
+import com.franchise.Repository.SaleRepo;
+import com.franchise.Repository.SaleReturnRepo;
 import com.franchise.Repository.TransactionRepo;
 import com.franchise.Service.PaymentAccountService;
 
@@ -27,6 +31,12 @@ public class PaymentAccountServiceImpl implements PaymentAccountService {
 
 	@Autowired
 	private TransactionRepo transactionRepo;
+
+	@Autowired
+	private SaleRepo saleRepo;
+
+	@Autowired
+	private SaleReturnRepo saleReturnRepo;
 
 	@Transactional
 	public Transaction createTransaction(Long accountId, Transaction transactionRequest) {
@@ -287,6 +297,58 @@ public class PaymentAccountServiceImpl implements PaymentAccountService {
 		vendorWiseOrders.put(vendorName, new ArrayList<>(poOrders));
 
 		return vendorWiseOrders;
+	}
+
+	@Transactional
+	public Transaction createTransactionForSaleOrReturn(Long accountId, Transaction transactionRequest) {
+
+		// 1️⃣ Fetch PaymentAccount
+		PaymentAccount paymentAccount = paymentAccountRepo.findById(accountId)
+				.orElseThrow(() -> new RuntimeException("Account not found"));
+		transactionRequest.setPaymentAccount(paymentAccount);
+
+		// 2️⃣ Link Sale or SaleReturn using transient IDs
+		if (transactionRequest.getSaleId() != null) {
+			Sale sale = saleRepo.findById(transactionRequest.getSaleId())
+					.orElseThrow(() -> new RuntimeException("Sale not found"));
+			transactionRequest.setSale(sale);
+		}
+
+		if (transactionRequest.getSaleReturnId() != null) {
+			SaleReturn saleReturn = saleReturnRepo.findById(transactionRequest.getSaleReturnId())
+					.orElseThrow(() -> new RuntimeException("SaleReturn not found"));
+			transactionRequest.setSaleReturn(saleReturn);
+		}
+
+		// 3️⃣ Calculate new balance
+		BigDecimal previousBalance = paymentAccount.getBalance() != null ? paymentAccount.getBalance()
+				: BigDecimal.ZERO;
+		BigDecimal newBalance = previousBalance;
+
+		switch (transactionRequest.getTransactionType().toLowerCase()) {
+		case "deposit":
+		case "purchase":
+		case "sale_return":
+		case "opening_balance":
+			newBalance = previousBalance.add(transactionRequest.getAmount());
+			break;
+		case "sale":
+		case "purchase_return":
+		case "expense":
+			newBalance = previousBalance.subtract(transactionRequest.getAmount());
+			break;
+		default:
+			throw new RuntimeException("Unknown transaction type: " + transactionRequest.getTransactionType());
+		}
+
+		transactionRequest.setBalance(newBalance);
+
+		// 4️⃣ Save transaction and update account balance
+		Transaction savedTransaction = transactionRepo.save(transactionRequest);
+		paymentAccount.setBalance(newBalance);
+		paymentAccountRepo.save(paymentAccount);
+
+		return savedTransaction;
 	}
 
 }
