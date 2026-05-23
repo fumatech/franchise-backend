@@ -1,0 +1,72 @@
+package com.franchise.Entity;
+
+import java.sql.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Holiday {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String name;
+    private Date startDate;
+    private Date endDate;
+    private Long businessLocationId;
+    private String note;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public java.sql.Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(java.sql.Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public java.sql.Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(java.sql.Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Long getBusinessLocationId() {
+        return businessLocationId;
+    }
+
+    public void setBusinessLocationId(Long businessLocationId) {
+        this.businessLocationId = businessLocationId;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    // Getters and setters ...
+}

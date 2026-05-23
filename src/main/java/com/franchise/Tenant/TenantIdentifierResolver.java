@@ -9,7 +9,7 @@ public class TenantIdentifierResolver implements CurrentTenantIdentifierResolver
 	@Override
 	public String resolveCurrentTenantIdentifier() {
 		String tenantId = TenantContextHolder.getTenantDbName();
-		return tenantId != null ? tenantId : "fuma_test1";
+		return tenantId != null ? tenantId : "fuma_retail";
 	}
 
 	@Override
